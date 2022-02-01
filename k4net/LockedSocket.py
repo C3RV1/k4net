@@ -60,7 +60,7 @@ class LockedSocket:
         data = b""
 
         while len(data) < size:
-            size_to_recv = size
+            size_to_recv = size - len(data)
             if size_to_recv > self.recv_size:
                 size_to_recv = self.recv_size
 
