@@ -2,3 +2,4 @@ build
 dist
 .idea
 k4net.egg-info
+*.pyc
