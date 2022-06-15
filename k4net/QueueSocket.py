@@ -97,6 +97,12 @@ class QueueSocket:
         wtr.write(data)
         self.send(wtr.getvalue())
 
+    def build_registered(self, name: str, constructor):
+        wtr = BinaryWriter()
+        wtr.write_string(name, encoding="ascii")
+        constructor(wtr)
+        self.send(wtr.getvalue())
+
     def recv(self, block=True, timeout=None):
         if self.closed.is_set():
             return None
